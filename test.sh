@@ -1,1 +1,1 @@
-ps -aux | grep jenkins
+ps -aux | grep $TEST
