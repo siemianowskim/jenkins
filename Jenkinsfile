@@ -16,6 +16,9 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
+        sh '''sudo yum install htop -y && sudo cp /var/log/messages* /tmp/
+'''
+        archiveArtifacts '/tmp/messages*.log'
       }
     }
   }
