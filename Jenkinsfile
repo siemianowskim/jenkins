@@ -10,6 +10,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
+        input(message: 'approved', id: 'aprove', ok: 'ok')
       }
     }
     stage('Deploy') {
