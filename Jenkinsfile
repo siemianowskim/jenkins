@@ -3,30 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        parallel(
-          "Build": {
-            echo 'Building..'
-            
-          },
-          "sleep": {
-            sleep 10
-            
-          }
-        )
+        echo 'Building..'
+        sh 'sudo yum update'
       }
     }
     stage('Test') {
       steps {
-        parallel(
-          "Test": {
-            echo 'Testing..'
-            
-          },
-          "check": {
-            sh 'sudo yum update >> ~/test.log'
-            
-          }
-        )
+        echo 'Testing..'
       }
     }
     stage('Deploy') {
