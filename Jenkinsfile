@@ -3,14 +3,26 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Building..'
-        sh 'sudo yum update -y'
+        parallel(
+          "Build": {
+            echo 'starting Build'
+            
+          },
+          "SCM checkout": {
+            sleep 5
+            
+          },
+          "Lunch Ansible": {
+            sleep 5
+            
+          }
+        )
       }
     }
     stage('Test') {
       steps {
-        echo 'Testing..'
-        input(message: 'approved ??', id: 'aprove', ok: 'ok')
+        echo 'Verfiy build'
+        input(message: 'Want to deploy into DEV?', id: 'aprove', ok: 'ok')
       }
     }
     stage('Deploy') {
