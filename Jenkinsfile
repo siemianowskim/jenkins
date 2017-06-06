@@ -10,7 +10,7 @@ pipeline {
           },
           "SCM checkout": {
             sleep 5
-            git(poll: true, url: 'https://github.com/siemianowskim/jenkins.git', branch: 'master')
+            git(poll: true, url: 'https://github.com/siemianowskim/jenkins.git', branch: 'master', changelog: true)
             
           },
           "Lunch Ansible": {
