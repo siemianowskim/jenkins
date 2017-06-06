@@ -29,8 +29,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
-        sh '''sudo yum install htop -y && sudo cp /var/log/messages /tmp/
-'''
+        sh 'cp README.md test.md'
       }
     }
   }
